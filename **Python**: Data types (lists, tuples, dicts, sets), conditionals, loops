@@ -1,0 +1,353 @@
+📌 Python Data Types
+Python has several built-in data types. We will cover:
+
+Lists
+Tuples
+Dictionaries
+Sets
+
+🔹 Lists (Ordered, Mutable, Allows Duplicates)
+A list is a collection of items that are ordered and mutable (modifiable). Lists allow duplicate values.
+
+-------------------------------------------Creating a List------------------------------------------------
+
+# A list of numbers
+numbers = [1, 2, 3, 4, 5]
+
+# A list with mixed data types
+mixed_list = [1, "hello", 3.14, True]
+
+print(numbers)
+print(mixed_list)
+
+
+-------------------------------------------Accessing Elements------------------------------------------------
+
+fruits = ["apple", "banana", "cherry"]
+
+# Accessing by index (starts at 0)
+print(fruits[0])  # apple
+print(fruits[-1])  # cherry (negative index starts from the end)
+
+
+-------------------------------------------Modifying Lists------------------------------------------------
+
+fruits[1] = "blueberry"  # Replace banana with blueberry
+print(fruits)
+
+-------------------------------------------Adding Elements------------------------------------------------
+
+fruits.append("orange")  # Adds at the end
+fruits.insert(1, "grape")  # Inserts at index 1
+print(fruits)
+
+-------------------------------------------Removing Elements------------------------------------------------
+
+fruits.remove("apple")  # Removes by value
+print(fruits)
+
+fruits.pop(2)  # Removes by index
+print(fruits)
+
+-------------------------------------------List Comprehension------------------------------------------------
+
+squares = [x**2 for x in range(5)]  # [0, 1, 4, 9, 16]
+print(squares)
+
+
+
+🔹 Lists (Ordered, Mutable, Allows Duplicates)
+✅ Best Practices
+Use lists when you need an ordered collection of items.
+Use list comprehensions for efficiency instead of loops.
+Use append() for adding elements instead of + operator, as it’s more memory-efficient.
+Use enumerate() instead of manually tracking index in loops.
+🎯 Use Cases
+Maintaining ordered data, like a queue of tasks or playlist of songs.
+Storing API responses, such as a list of user objects.
+Processing data in bulk, such as modifying multiple elements.
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+
+
+
+
+🔹 Tuples (Ordered, Immutable, Allows Duplicates)
+A tuple is like a list but immutable (cannot be changed).
+
+
+-------------------------------------------Creating a Tuple------------------------------------------------
+
+numbers = (1, 2, 3, 4, 5)
+mixed_tuple = (1, "hello", 3.14, True)
+
+print(numbers)
+
+-------------------------------------------Accessing Elements------------------------------------------------
+
+print(numbers[0])  # 1
+print(numbers[-1])  # 5
+
+-------------------------------------------Tuple Packing and Unpacking------------------------------------------------
+
+a, b, c = (10, 20, 30)  # Unpacking tuple
+print(a, b, c)
+
+
+
+🔹 Tuples (Ordered, Immutable, Allows Duplicates)
+✅ Best Practices
+Use tuples for fixed collections of items to ensure immutability.
+Use tuples when performance matters, as they are faster than lists.
+Use tuple unpacking for readability.
+🎯 Use Cases
+Storing configuration settings (e.g., database connection settings).
+Returning multiple values from functions.
+Using as dictionary keys since they are hashable.
+
+
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+
+
+
+
+🔹 Dictionaries (Key-Value Pairs, Mutable, No Duplicate Keys)
+
+
+-------------------------------------------Creating a Dictionary------------------------------------------------
+
+person = {"name": "Alice", "age": 25, "city": "New York"}
+print(person)
+
+-------------------------------------------Accessing & Modifying Values------------------------------------------------
+
+print(person["name"])  # Alice
+
+person["age"] = 26  # Modify value
+print(person)
+
+person["job"] = "Engineer"  # Add new key-value pair
+print(person)
+
+-------------------------------------------Removing Key-Value Pairs------------------------------------------------
+
+del person["city"]  # Remove by key
+print(person)
+
+-------------------------------------------Looping Through a Dictionary------------------------------------------------
+
+for key, value in person.items():
+    print(key, "->", value)
+
+
+
+🔹 Dictionaries (Key-Value Pairs, Mutable, No Duplicate Keys)
+✅ Best Practices
+Use dictionaries when you need key-value mapping (quick lookups).
+Use .get() instead of dict[key] to avoid KeyErrors.
+Use dictionary comprehensions for cleaner code.
+Use defaultdict from collections if missing keys should return a default value.
+🎯 Use Cases
+Storing user profiles (e.g., {"name": "Alice", "age": 25}).
+Counting occurrences (e.g., word frequency in text).
+Mapping routes in web frameworks (e.g., {"/home": home_handler, "/about": about_handler}).
+
+
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+
+
+
+🔹 Sets (Unordered, Unique Values)
+A set is a collection of unique items.
+
+-------------------------------------------Creating a Set------------------------------------------------
+
+numbers = {1, 2, 3, 4, 4, 5}  # Duplicate 4 is ignored
+print(numbers)
+
+-------------------------------------------Adding & Removing Elements------------------------------------------------
+
+
+numbers.add(6)
+numbers.remove(3)
+print(numbers)
+
+
+-------------------------------------------Set Operations------------------------------------------------
+
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+print(a | b)  # Union {1, 2, 3, 4, 5}
+print(a & b)  # Intersection {3}
+print(a - b)  # Difference {1, 2}
+
+
+
+🔹 Sets (Unordered, Unique Values)
+✅ Best Practices
+Use sets to remove duplicates from lists.
+Use sets for membership tests (in operator is faster in sets than lists).
+Use set operations (|, &, -) instead of loops.
+🎯 Use Cases
+Removing duplicates from a dataset.
+Checking membership efficiently (e.g., filtering allowed usernames).
+Finding similarities and differences between dataset
+
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+
+📌 Conditionals
+Conditionals are used to make decisions in Python.
+
+
+-------------------------------------------Basic if Statement------------------------------------------------
+
+x = 10
+
+if x > 5:
+    print("x is greater than 5")
+
+
+-------------------------------------------if-else Statement------------------------------------------------
+
+age = 18
+
+if age >= 18:
+    print("You can vote!")
+else:
+    print("You cannot vote.")
+
+-------------------------------------------Using and, or, not------------------------------------------------
+
+x = 10
+y = 20
+
+if x > 5 and y > 15:
+    print("Both conditions are True")
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+
+📌 Loops
+Loops allow you to repeat actions multiple times.
+
+-------------------------------------------for Loop------------------------------------------------
+
+fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits:
+    print(fruit)
+
+-------------------------------------------Looping Through a Range------------------------------------------------
+
+for i in range(5):  # 0 to 4
+    print(i)
+
+-------------------------------------------Using break and continue------------------------------------------------
+
+for num in range(10):
+    if num == 5:
+        break  # Stops loop
+    print(num)
+
+for num in range(10):
+    if num == 5:
+        continue  # Skips this iteration
+    print(num)
+
+-------------------------------------------while Loop------------------------------------------------
+
+count = 0
+
+while count < 5:
+    print(count)
+    count += 1
+
+-------------------------------------------while Loop------------------------------------------------
+
+count = 0
+
+while count < 5:
+    print(count)
+    count += 1
+
+
+* Infinite Loop (Be Careful!)
+
+while True:
+    print("This runs forever!")  # Press Ctrl+C to stop
+
+-------------------------------------------Looping With Else------------------------------------------------
+
+
+for i in range(5):
+    print(i)
+else:
+    print("Loop finished!")
+
+
+
+
+📌 Loops Best Practices & Use Cases
+✅ Best Practices
+Use enumerate() instead of range(len(list)) for index tracking.
+Use list/set/dictionary comprehensions instead of manual loops.
+Use break and continue wisely to avoid unnecessary iterations.
+Use zip() when looping over multiple lists.
+🎯 Use Cases
+Iterating over datasets (e.g., processing API results).
+Generating values dynamically (e.g., generating Fibonacci sequence).
+Looping over multiple collections simultaneously.
+
+
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+
+📌 Summary
+Data Type	Ordered?	Mutable?	Allows Duplicates?	Example
+List	✅  Yes	      ✅ Yes	      ✅ Yes	        [1, 2, 3]
+Tuple	✅  Yes	      ❌ No	        ✅ Yes	        (1, 2, 3)
+Dict	✅  Yes	      ✅ Yes	      ❌ No(Keys)	    {"a": 1, "b": 2}
+Set	  ❌  No	      ✅ Yes	      ❌ No	          {1, 2, 3}
+
+
+
+
