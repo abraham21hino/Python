@@ -1,0 +1,96 @@
+📌 Functions
+A function in Python is a reusable block of code designed to perform a specific task. Functions help organize code, reduce redundancy, and improve maintainability.
+
+🛠 Syntax:
+def function_name(parameters):
+    """Docstring: Describes what the function does"""
+    # Function body
+    return result  # (optional)
+
+
+🔹 Example:
+def greet(name):
+    """Returns a greeting message."""
+    return f"Hello, {name}!"
+print(greet("Alice"))
+
+
+🔹 Best Practices
+✅ Use descriptive names for functions and parameters
+✅ Keep functions small and focused (Single Responsibility Principle)
+✅ Use docstrings to explain the function
+✅ Use default parameters where applicable
+
+
+🎯 Ideal Use Case
+When a block of code needs to be reused multiple times
+When logic needs to be modularized for better readability
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+📌  Lambda Functions
+A lambda function is an anonymous function in Python that can have any number of arguments but only one expression.
+lambda arguments: expression
+
+
+🔹 Example
+square = lambda x: x ** 2
+print(square(5))  # Output: 25
+add = lambda x, y: x + y
+print(add(3, 7))  # Output: 10
+
+
+🔹 Best Practices
+✅ Use for short, simple functions
+✅ Avoid complex logic in lambda functions
+✅ Use when passing functions as arguments to higher-order functions
+
+🎯 Ideal Use Case
+When defining small functions that are used once (e.g., inside map(), filter(), sorted())
+When passing functions to another function dynamically
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+📌  List Comprehensions
+List comprehensions provide a concise way to create lists.
+
+🛠 Syntax:
+[expression for item in iterable if condition]
+
+🔹 Example:
+
+numbers = [1, 2, 3, 4, 5]
+squares = [x ** 2 for x in numbers]
+print(squares)  # Output: [1, 4, 9, 16, 25]
+
+even_numbers = [x for x in numbers if x % 2 == 0]
+print(even_numbers)  # Output: [2, 4]
+
+🔹 Best Practices
+✅ Use for simple transformations
+✅ Avoid deeply nested comprehensions (Use loops if it gets complex)
+✅ Use conditional logic when filtering elements
+
+🎯 Ideal Use Case
+When generating a new list from an existing iterable
+When filtering elements from a list based on a condition
