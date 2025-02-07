@@ -1,0 +1,164 @@
+# **Writing Files (`.csv`, `.json`, `.txt`) & Exception Handling in Python**  
+
+Let's dive into how to work with different file formats and handle exceptions effectively in Python! 🚀  
+
+---
+
+1️⃣ Writing Text Files (`.txt`)**  
+Text files store plain text data and are useful for logs, notes, or simple structured information.  
+
+#Writing to a File (`.txt`)**  
+
+with open("example.txt", "w") as file:
+    file.write("Hello, World!\n")
+    file.write("This is a text file.")
+
+✅ **Best Practices:**  
+🎯 Use `with open(...)` to handle files efficiently (automatically closes file)  
+🎯 Use `"w"` mode to overwrite or `"a"` to append  
+
+#Reading a Text File (`.txt`)**  
+
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+🎯 Use `"r"` mode to read files  
+🎯 Use `file.read()` (reads entire file) or `file.readlines()` (returns a list of lines)  
+
+🛠 **Ideal Use Cases:**  
+- Saving logs, reports, and simple structured text  
+- Storing temporary human-readable information  
+
+---
+
+2️⃣ Writing CSV Files (`.csv`)**  
+CSV files store tabular data (rows & columns), useful for databases, spreadsheets, and data exchange.  
+
+#Writing to a CSV File**
+
+import csv
+
+data = [
+    ["Name", "Age", "City"],
+    ["Alice", 25, "New York"],
+    ["Bob", 30, "Los Angeles"]
+]
+
+with open("data.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerows(data)
+
+✅ **Best Practices:**  
+🎯 Use `newline=""` to avoid extra blank lines  
+🎯 Use `writer.writerow()` for single rows, `writer.writerows()` for multiple  
+
+#Reading a CSV File**
+
+with open("data.csv", "r") as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)
+
+🎯 Use `csv.reader()` to parse CSV files efficiently  
+
+🛠 **Ideal Use Cases:**  
+- Storing structured data for databases or spreadsheets  
+- Importing/exporting large datasets  
+
+---
+
+3️⃣ Writing JSON Files (`.json`)**  
+JSON (JavaScript Object Notation) is widely used for APIs, configurations, and data storage.  
+
+#Writing to a JSON File**
+
+import json
+
+data = {
+    "name": "Alice",
+    "age": 25,
+    "city": "New York"
+}
+
+with open("data.json", "w") as file:
+    json.dump(data, file, indent=4)
+
+✅ **Best Practices:**  
+🎯 Use `indent=4` for readability  
+🎯 Use `json.dumps()` for converting to a string  
+
+#Reading a JSON File**
+
+with open("data.json", "r") as file:
+    data = json.load(file)
+    print(data)
+
+🎯 Use `json.load()` to parse JSON files  
+
+🛠 **Ideal Use Cases:**  
+- Storing API responses, configurations, or structured data  
+- Interfacing between Python and web applications  
+
+---
+
+4️⃣ Exception Handling (`try-except`)**  
+Exception handling prevents your program from crashing due to unexpected errors.  
+
+#Basic Try-Except**
+
+try:
+    result = 10 / 0
+except ZeroDivisionError as e:
+    print(f"Error: {e}")
+
+✅ **Best Practices:**  
+🎯 Catch **specific** exceptions (`ZeroDivisionError`, `FileNotFoundError`)  
+🎯 Avoid catching **all** exceptions (`except Exception:`) unless necessary  
+
+#Handling Multiple Exceptions**
+
+try:
+    with open("non_existent.txt", "r") as file:
+        content = file.read()
+except FileNotFoundError:
+    print("File not found!")
+except PermissionError:
+    print("You don't have permission to read this file.")
+
+🎯 Handle different errors separately for better debugging  
+
+#Using `finally` (Always Executes)**
+
+try:
+    file = open("example.txt", "r")
+    content = file.read()
+finally:
+    file.close()
+
+🎯 Use `finally` to ensure resources (e.g., files, database connections) are properly closed  
+
+🛠 **Ideal Use Cases:**  
+- Preventing application crashes  
+- Ensuring clean resource management  
+
+---
+
+🚀 Summary**
+| Feature | Best Used For | Best Practices |
+|---------|-------------|---------------|
+| **Text Files** (`.txt`) | Simple text storage | Use `with open(...)`, choose correct mode (`"w"`, `"r"`, `"a"`) |
+| **CSV Files** (`.csv`) | Tabular data | Use `newline=""`, choose correct delimiter |
+| **JSON Files** (`.json`) | Structured data & APIs | Use `indent=4` for readability |
+| **Exception Handling** | Preventing crashes | Catch **specific** exceptions, use `finally` for cleanup |
+
+
+
+💡 Bonus: Combining Everything!
+✅ Final Project Idea:
+Write a Student Management System that:
+
+Stores student data in JSON
+Reads/writes student records using CSV
+Logs user actions to a text file
+Uses exception handling to ensure smooth operation
